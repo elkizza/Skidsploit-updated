@@ -12,22 +12,22 @@
 
 #define SetGlobal(L,n)            SetTop(L, -(n)-1)
 
-typedef int(__fastcall*Typedef_GetField)(int a1, int a2, const char *a3);
+typedef int(__cdecl*Typedef_GetField)(int a1, int a2, const char *a3);
 Typedef_GetField GetField_Function = (Typedef_GetField)unprotect(aslr(LUA_GETFIELD));
 
-typedef int(__cdecl*Typedef_SetField)(int a1, int a2, const char *a3);
+typedef int(__stdcall*Typedef_SetField)(int a1, int a2, const char *a3);
 Typedef_SetField SetField_Function = (Typedef_SetField)unprotect(aslr(LUA_SETFIELD));
 
-typedef int(__fastcall*Typedef_SetTop)(int a1, int a2);
+typedef int(__stdcall*Typedef_SetTop)(int a1, int a2);
 Typedef_SetTop SetTop_Function = (Typedef_SetTop)unprotect(aslr(LUA_SETTOP));
 
-typedef int(__cdecl*Typedef_PushString)(int a1, const char *a2);
+typedef int(__fastcall*Typedef_PushString)(int a1, const char *a2);
 Typedef_PushString PushString_Function = (Typedef_PushString)aslr(LUA_PUSHSTRING);
 
 typedef int(__thiscall*Typedef_PushNumber)(int a1, double a2);
 Typedef_PushNumber PushNumber_Function = (Typedef_PushNumber)unprotect(aslr(LUA_PUSHNUMBER));
 
-typedef int(__stdcall*Typedef_PushValue)(int a1, int a2);
+typedef int(__cdecl*Typedef_PushValue)(int a1, int a2);
 Typedef_PushValue PushValue_Function = (Typedef_PushValue)unprotect(aslr(LUA_PUSHVALUE));
 
 typedef int(__cdecl*Typedef_GetMetaTable)(int L, int idx);

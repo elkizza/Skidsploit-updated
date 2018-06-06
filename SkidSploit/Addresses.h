@@ -31,3 +31,4 @@ int GlobalState(DWORD ScriptContext) {
 int aslr(int addr) {
 	return (addr - 0x400000 + (DWORD)GetModuleHandle(0));
 }
+// Enjoy Updated Bye Elkizza on verm 

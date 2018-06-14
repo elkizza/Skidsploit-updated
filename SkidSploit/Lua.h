@@ -13,7 +13,7 @@
 #define SetGlobal(L,n)            SetTop(L, -(n)-1)
 
 typedef int(__fastcall*Typedef_GetField)(int a1, int a2, const char *a3);
-Typedef_GetField GetField_Function = (Typedef_GetField)unprotect(aslr(LUA_GETFIELD));
+Typedef_GetField GetField_Function = (Typedef_GetField)unprotect(aslr(LUA_GETFIELD)); //Updated
 
 typedef int(__stdcall*Typedef_SetField)(int a1, int a2, const char *a3);
 Typedef_SetField SetField_Function = (Typedef_SetField)unprotect(aslr(LUA_SETFIELD));
